@@ -1,21 +1,3 @@
-enum ValueType {
-  Integer,
-  Float,
-  Boolean,
-  String,
-}
-
-type ValueRule = {
-  type: ValueType;
-  default: number;
-  min?: number;
-  max?: number;
-}
-
-const Floats_01_50 = { type: ValueType.Float, default: 1, min: 0.1, max: 5 };
-const Floats_05_30 = { type: ValueType.Float, default: 1, min: 0.5, max: 3 };
-const DefaultRule = Floats_01_50;
-
 export default interface PalWorldSettings {
   Difficulty?: string; // Default: None,
   DayTimeSpeedRate?: number; // Default: 1.000000,

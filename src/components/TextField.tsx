@@ -20,6 +20,7 @@ export default function TextField(props: Props) {
 
   function onTextValueChange(value: string): void {
     const options: PalWorldSettings = {};
+    // @ts-ignore
     options[field] = value;
     settings.patch(options);
   }
@@ -30,6 +31,7 @@ export default function TextField(props: Props) {
         <span>{title}</span>
       </Row>
       <Input
+        // @ts-ignore
         value={settings[field]}
         style={{ width: 384 }}
         placeholder={placeholder}

@@ -61,6 +61,7 @@ export default function SliderField(props: Props) {
     else value = values[0];
 
     const options: PalWorldSettings = {};
+    // @ts-ignore
     options[field] = value;
     settings.patch(options);
   }
@@ -74,6 +75,7 @@ export default function SliderField(props: Props) {
         min = {min}
         max = {max}
         step = {step}
+        // @ts-ignore
         value={ settings[field] }
         onChange={ onSliderValueChange }
         style={{ width: 384 }}

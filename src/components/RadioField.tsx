@@ -16,6 +16,7 @@ export default function RadioField({title, field, children}: Props) {
 
   function onChange(value: unknown) {
     const options: PalWorldSettings = {};
+    // @ts-ignore
     options[field] = value;
     settings.patch(options);
   }

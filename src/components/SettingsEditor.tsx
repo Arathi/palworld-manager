@@ -1,16 +1,13 @@
-import { Button, Grid, Divider, Radio } from "@arco-design/web-react";
+import { Divider, Radio } from "@arco-design/web-react";
 import SliderField, { SliderValueType } from './SliderField';
 import TextField from './TextField';
 import "@/styles/SettingsEditor.scss";
 import RadioField from '@components/RadioField.tsx';
 import { DeathPenaltyValues } from '@/domains/PalWorldSettings';
 import { useSettingsStore } from '@/stores/SettingsStore';
-const {Row} = Grid;
 
 export default function SettingsEditor() {
   const settings = useSettingsStore();
-
-  // const optionSettings = useSettingsStore((state) => toOptionSettings())
 
   return (
     <div className="settings-editor">
@@ -35,7 +32,6 @@ export default function SettingsEditor() {
       </RadioField>
       <SliderField title={"RCON端口号"} field={"RCONPort"} type={SliderValueType.Integer} min={1025} max={65535} />
 
-
       <RadioField title={"快速旅行"} field={"bEnableFastTravel"}>
         <Radio value={false}>禁用</Radio>
         <Radio value={true}>启用</Radio>
@@ -44,7 +40,6 @@ export default function SettingsEditor() {
         <Radio value={false}>禁用</Radio>
         <Radio value={true}>启用</Radio>
       </RadioField>
-
 
       <h2>难度配置</h2>
       <Divider />
@@ -84,10 +79,10 @@ export default function SettingsEditor() {
         <Radio value={true}>启用</Radio>
       </RadioField>
       <RadioField title={"死亡惩罚"} field={"DeathPenalty"}>
-        <Radio value={DeathPenaltyValues.None} tip={"无"}>无</Radio>
-        <Radio value={DeathPenaltyValues.Item} tip={"掉落所有物品"}>物品</Radio>
-        <Radio value={DeathPenaltyValues.ItemAndEquipment} tip={"掉落所有物品和装备"}>物品+装备</Radio>
-        <Radio value={DeathPenaltyValues.All} tip={"掉落所有物品、装备及帕鲁"}>所有</Radio>
+        <Radio value={DeathPenaltyValues.None}>无</Radio>
+        <Radio value={DeathPenaltyValues.Item}>物品</Radio>
+        <Radio value={DeathPenaltyValues.ItemAndEquipment}>物品+装备</Radio>
+        <Radio value={DeathPenaltyValues.All}>所有</Radio>
       </RadioField>
 
       <SliderField title={"巨大蛋孵化所需时间"} field={"PalEggDefaultHatchingTime"} type={SliderValueType.Integer} min={0} max={240} />
