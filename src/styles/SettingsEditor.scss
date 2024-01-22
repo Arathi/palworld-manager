@@ -1,0 +1,22 @@
+.settings-editor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .field {
+    margin: 1px 0;
+
+    .title {
+      width: 256px;
+      padding: 0 16px;
+      margin: 0 2px;
+      justify-content: end;
+      align-items: center;
+    }
+
+    .arco-slider-input > .arco-input-number {
+      width: 72px;
+    }
+  }
+}

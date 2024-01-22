@@ -1,0 +1,161 @@
+enum ValueType {
+  Integer,
+  Float,
+  Boolean,
+  String,
+}
+
+type ValueRule = {
+  type: ValueType;
+  default: number;
+  min?: number;
+  max?: number;
+}
+
+const Floats_01_50 = { type: ValueType.Float, default: 1, min: 0.1, max: 5 };
+const Floats_05_30 = { type: ValueType.Float, default: 1, min: 0.5, max: 3 };
+const DefaultRule = Floats_01_50;
+
+export default interface PalWorldSettings {
+  Difficulty?: string; // Default: None,
+  DayTimeSpeedRate?: number; // Default: 1.000000,
+  NightTimeSpeedRate?: number; // Default: 1.000000,
+  ExpRate?: number; // Default: 1.000000,
+  PalCaptureRate?: number; // Default: 1.000000,
+  PalSpawnNumRate?: number; // Default: 1.000000,
+  PalDamageRateAttack?: number; // Default: 1.000000,
+  PalDamageRateDefense?: number; // Default: 1.000000,
+  PlayerDamageRateAttack?: number; // Default: 1.000000,
+  PlayerDamageRateDefense?: number; // Default: 1.000000,
+  PlayerStomachDecreaceRate?: number; // Default: 1.000000,
+  PlayerStaminaDecreaceRate?: number; // Default: 1.000000,
+  PlayerAutoHPRegeneRate?: number; // Default: 1.000000,
+  PlayerAutoHpRegeneRateInSleep?: number; // Default: 1.000000,
+  PalStomachDecreaceRate?: number; // Default: 1.000000,
+  PalStaminaDecreaceRate?: number; // Default: 1.000000,
+  PalAutoHPRegeneRate?: number; // Default: 1.000000,
+  PalAutoHpRegeneRateInSleep?: number; // Default: 1.000000,
+  BuildObjectDamageRate?: number; // Default: 1.000000,
+  BuildObjectDeteriorationDamageRate?: number; // Default: 1.000000,
+  CollectionDropRate?: number; // Default: 1.000000,
+  CollectionObjectHpRate?: number; // Default: 1.000000,
+  CollectionObjectRespawnSpeedRate?: number; // Default: 1.000000,
+  EnemyDropItemRate?: number; // Default: 1.000000,
+  DeathPenalty?: DeathPenaltyValues; // Default: All,
+  bEnablePlayerToPlayerDamage?: boolean; // Default: false,
+  bEnableFriendlyFire?: boolean; // Default: false,
+  bEnableInvaderEnemy?: boolean; // Default: true,
+  bActiveUNKO?: boolean; // Default: false,
+  bEnableAimAssistPad?: boolean; // Default: true,
+  bEnableAimAssistKeyboard?: boolean; // Default: false,
+  DropItemMaxNum?: number; // Default: 3000,
+  DropItemMaxNum_UNKO?: number; // Default: 100,
+  BaseCampMaxNum?: number; // Default: 128,
+  BaseCampWorkerMaxNum?: number; // Default: 15,
+  DropItemAliveMaxHours?: number; // Default: 1.000000,
+  bAutoResetGuildNoOnlinePlayers?: boolean; // Default: false,
+  AutoResetGuildTimeNoOnlinePlayers?: number; // Default: 72.000000,
+  GuildPlayerMaxNum?: number; // Default: 20,
+  PalEggDefaultHatchingTime?: number; // Default: 72.000000,
+  WorkSpeedRate?: number; // Default: 1.000000,
+  bIsMultiplay?: boolean; // Default: false,
+  bIsPvP?: boolean; // Default: false,
+  bCanPickupOtherGuildDeathPenaltyDrop?: boolean; // Default: false,
+  bEnableNonLoginPenalty?: boolean; // Default: true,
+  bEnableFastTravel?: boolean; // Default: true,
+  bIsStartLocationSelectByMap?: boolean; // Default: true,
+  bExistPlayerAfterLogout?: boolean; // Default: false,
+  bEnableDefenseOtherGuildPlayer?: boolean; // Default: false,
+  CoopPlayerMaxNum?: number; // Default: 4,
+  ServerPlayerMaxNum?: number; // Default: 32,
+  ServerName?: string; // Default: "Default Palworld Server",
+  ServerDescription?: string; // Default: "",
+  AdminPassword?: string; // Default: "",
+  ServerPassword?: string; // Default: "",
+  PublicPort?: number; // Default: 8211,
+  PublicIP?: string; // Default: "",
+  RCONEnabled?: boolean; // Default: false,
+  RCONPort?: number; // Default: 25575,
+  Region?: string; // Default: "",
+  bUseAuth?: boolean; // Default: true,
+  BanListURL?: string; // Default: "https://api.palworldgame.com/api/banlist.txt"
+}
+
+export enum DeathPenaltyValues {
+  None = "None",
+  Item = "Item",
+  ItemAndEquipment = "ItemAndEquipment",
+  All = "All",
+}
+
+const None = "None";
+const False = false;
+const True = true;
+const All = DeathPenaltyValues.All;
+
+export const Default: PalWorldSettings = {
+  Difficulty: None,
+  DayTimeSpeedRate: 1.000000,
+  NightTimeSpeedRate: 1.000000,
+  ExpRate: 1.000000,
+  PalCaptureRate: 1.000000,
+  PalSpawnNumRate: 1.000000,
+  PalDamageRateAttack: 1.000000,
+  PalDamageRateDefense: 1.000000,
+  PlayerDamageRateAttack: 1.000000,
+  PlayerDamageRateDefense: 1.000000,
+  PlayerStomachDecreaceRate: 1.000000,
+  PlayerStaminaDecreaceRate: 1.000000,
+  PlayerAutoHPRegeneRate: 1.000000,
+  PlayerAutoHpRegeneRateInSleep: 1.000000,
+  PalStomachDecreaceRate: 1.000000,
+  PalStaminaDecreaceRate: 1.000000,
+  PalAutoHPRegeneRate: 1.000000,
+  PalAutoHpRegeneRateInSleep: 1.000000,
+  BuildObjectDamageRate: 1.000000,
+  BuildObjectDeteriorationDamageRate: 1.000000,
+  CollectionDropRate: 1.000000,
+  CollectionObjectHpRate: 1.000000,
+  CollectionObjectRespawnSpeedRate: 1.000000,
+  EnemyDropItemRate: 1.000000,
+  DeathPenalty: All,
+  bEnablePlayerToPlayerDamage: False,
+  bEnableFriendlyFire: False,
+  bEnableInvaderEnemy: True,
+  bActiveUNKO: False,
+  bEnableAimAssistPad: True,
+  bEnableAimAssistKeyboard: False,
+  DropItemMaxNum: 3000,
+  DropItemMaxNum_UNKO: 100,
+  BaseCampMaxNum: 128,
+  BaseCampWorkerMaxNum: 15,
+  DropItemAliveMaxHours: 1.000000,
+  bAutoResetGuildNoOnlinePlayers: False,
+  AutoResetGuildTimeNoOnlinePlayers: 72.000000,
+  GuildPlayerMaxNum: 20,
+  PalEggDefaultHatchingTime: 72.000000,
+  WorkSpeedRate: 1.000000,
+  bIsMultiplay: False,
+  bIsPvP: False,
+  bCanPickupOtherGuildDeathPenaltyDrop: False,
+  bEnableNonLoginPenalty: True,
+  bEnableFastTravel: True,
+  bIsStartLocationSelectByMap: True,
+  bExistPlayerAfterLogout: False,
+  bEnableDefenseOtherGuildPlayer: False,
+  CoopPlayerMaxNum: 4,
+  ServerPlayerMaxNum: 32,
+  ServerName: "Default Palworld Server",
+  ServerDescription: "",
+  AdminPassword: "",
+  ServerPassword: "",
+  PublicPort: 8211,
+  PublicIP: "",
+  RCONEnabled: False,
+  RCONPort: 25575,
+  Region: "",
+  bUseAuth: True,
+  BanListURL: "https://api.palworldgame.com/api/banlist.txt"
+}
+
+export type FieldName = keyof PalWorldSettings;
