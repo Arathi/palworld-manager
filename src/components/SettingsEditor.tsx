@@ -1,10 +1,12 @@
-import { Divider, Radio } from "@arco-design/web-react";
+import { Divider, Radio, Input } from "@arco-design/web-react";
 import SliderField, { SliderValueType } from './SliderField';
 import TextField from './TextField';
 import "@/styles/SettingsEditor.scss";
 import RadioField from '@components/RadioField.tsx';
 import { DeathPenaltyValues } from '@/domains/PalWorldSettings';
 import { useSettingsStore } from '@/stores/SettingsStore';
+
+const TextArea = Input.TextArea;
 
 export default function SettingsEditor() {
   const settings = useSettingsStore();
@@ -93,7 +95,11 @@ export default function SettingsEditor() {
 
       <h2>输出</h2>
       <Divider />
-      <div>{settings.toOptionSettings()}</div>
+      <TextArea
+        style={{width: 676, height: 384}}
+        value={`[/Script/Pal.PalGameWorldSettings]\n${settings.toOptionSettings()}`}
+        disabled
+      />
     </div>
   );
 }
