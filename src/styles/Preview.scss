@@ -1,0 +1,12 @@
+.preview {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+  width: 360px;
+  height: 720px;
+  background-color: #F2F3F5;
+  border: 1px solid gray;
+
+  display: flex;
+  flex-direction: column;
+}

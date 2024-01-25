@@ -1,16 +1,11 @@
-import { Divider, Radio, Input } from "@arco-design/web-react";
+import { Divider, Radio } from "@arco-design/web-react";
 import SliderField, { SliderValueType } from './SliderField';
 import TextField from './TextField';
-import "@/styles/SettingsEditor.scss";
 import RadioField from '@components/RadioField.tsx';
 import { DeathPenaltyValues } from '@/domains/PalWorldSettings';
-import { useSettingsStore } from '@/stores/SettingsStore';
-
-const TextArea = Input.TextArea;
+import "@/styles/SettingsEditor.scss";
 
 export default function SettingsEditor() {
-  const settings = useSettingsStore();
-
   return (
     <div className="settings-editor">
       <h1>服务端配置文件编辑器</h1>
@@ -89,17 +84,6 @@ export default function SettingsEditor() {
 
       <SliderField title={"巨大蛋孵化所需时间"} field={"PalEggDefaultHatchingTime"} type={SliderValueType.Integer} min={0} max={240} />
       <SliderField title={"公会人数上限"} field={"GuildPlayerMaxNum"} type={SliderValueType.Integer} min={5} max={50} />
-
-      <h2>其他配置</h2>
-      <Divider />
-
-      <h2>输出</h2>
-      <Divider />
-      <TextArea
-        style={{width: 676, height: 384}}
-        value={`[/Script/Pal.PalGameWorldSettings]\n${settings.toOptionSettings()}`}
-        disabled
-      />
     </div>
   );
 }
